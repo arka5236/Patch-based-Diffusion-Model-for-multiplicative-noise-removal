@@ -1,0 +1,8 @@
+@software{Hu_PaDIS_2024,
+  author = {Hu, Jason},
+  month = {07},
+  title = {{PaDIS}},
+  url = {https://github.com/jasonhu4/PaDIS},
+  version = {1.0.0},
+  year = {2024}
+}
