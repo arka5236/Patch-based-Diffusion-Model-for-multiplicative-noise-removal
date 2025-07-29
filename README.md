@@ -19,6 +19,7 @@ for real-world image degradation.
 
 
 # Citation
-If you are referencing the PaDIS GitHub repository directly, you can cite it as follows:
 
-Hu, J. (2024). *PaDIS: Patch-based Diffusion Models* [Source code]. GitHub. Retrieved from https://github.com/jasonhu4/PaDIS
+1) Hu, J. (2024). *PaDIS: Patch-based Diffusion Models* [Source code]. GitHub. Retrieved from https://github.com/jasonhu4/PaDIS
+
+2) Vuong, A. (2025). *sde_multiplicative_noise_removal* [Source code]. GitHub. Retrieved from https://github.com/anvuongb/sde_multiplicative_noise_removal
