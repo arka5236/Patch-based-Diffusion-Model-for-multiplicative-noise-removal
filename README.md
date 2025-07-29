@@ -31,7 +31,7 @@ The whole project work is done in the google colab environment.
 Firstly ,load the dataset CelebA in your google colab environment .Then,modify the path of the images of the dataset in the DATA_DIR of the Training.py file in the google colab.This will mark the commencement  of the training of the model.
 
 # Denoising and Reconstrucction
-From the checkpoint directory ,get the path and place it in the BEST_MODEL_PATH in Denoising.py file .You may modify the path of the test image .Then,run the file in the google colab environment.
+From the checkpoint directory ,get the path of the trained model and place it in the BEST_MODEL_PATH in Denoising.py file .You may modify the path of the test image .Then,run the file in the google colab environment.This will produce a visualisation of ground truth ,corrupted image and denoised image produced by using your trained model.
 
 
 # Citation
