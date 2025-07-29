@@ -1,12 +1,8 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
-authors:
-  - family-names: "Hu"
-    given-names: "Jason"
-    # You can add ORCID if known: orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
-title: "PaDIS"
-version: 1.0.0 # Placeholder, update with actual version if available
-date-released: 2024-07-29 # Placeholder, update with actual release date
-url: "https://github.com/jasonhu4/PaDIS"
-# If you have a DOI for a specific release (e.g., from Zenodo), add it here:
-# doi: "10.5281/zenodo.1234567"
+@software{Hu_PaDIS_2024,
+  author = {Hu, Jason},
+  month = {07},
+  title = {{PaDIS}},
+  url = {https://github.com/jasonhu4/PaDIS},
+  version = {1.0.0},
+  year = {2024}
+}
