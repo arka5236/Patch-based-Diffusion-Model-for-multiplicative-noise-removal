@@ -16,3 +16,14 @@ demonstrate the efficacy of PaDIS-MN on a standard image dataset, showcasing sig
 ments in image quality (PSNR, SSIM, LPIPS) compared to the corrupted inputs. Our patch-based
 approach enables efficient processing of high-resolution images, making PaDIS-MN a robust solution
 for real-world image degradation.
+
+
+# Citation
+@software{Hu_PaDIS_2024,
+  author = {Hu, Jason},
+  month = {07},
+  title = {{PaDIS}},
+  url = {https://github.com/jasonhu4/PaDIS},
+  version = {1.0.0},
+  year = {2024}
+}
