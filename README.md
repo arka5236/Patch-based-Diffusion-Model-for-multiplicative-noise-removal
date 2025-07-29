@@ -23,3 +23,15 @@ for real-world image degradation.
 1) Hu, J. (2024). *PaDIS: Patch-based Diffusion Models* [Source code]. GitHub. Retrieved from https://github.com/jasonhu4/PaDIS
 
 2) Vuong, A. (2025). *sde_multiplicative_noise_removal* [Source code]. GitHub. Retrieved from https://github.com/anvuongb/sde_multiplicative_noise_removal
+
+# Acknowledgement
+
+We'd like to acknowledge the following open-source projects which have been instrumental in this work:
+
+PaDIS: Patch-based Diffusion Models
+We thank Jason Hu for developing and maintaining the PaDIS repository. This project's work on learning image priors through patch-based diffusion models was highly insightful.
+Hu, J. (2025). PaDIS: Patch-based Diffusion Models [Source code]. GitHub. Retrieved from https://github.com/jasonhu4/PaDIS
+
+SDE Multiplicative Noise Removal
+We also extend our gratitude to An Vuong for the sde_multiplicative_noise_removal repository, which provided valuable insights into stochastic differential equations for noise removal.
+Vuong, A. (2025). sde_multiplicative_noise_removal [Source code]. GitHub. Retrieved from https://github.com/anvuongb/sde_multiplicative_noise_removal
