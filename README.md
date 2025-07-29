@@ -19,11 +19,6 @@ for real-world image degradation.
 
 
 # Citation
-@software{Hu_PaDIS_2024,
-  author = {Hu, Jason},
-  month = {07},
-  title = {{PaDIS}},
-  url = {https://github.com/jasonhu4/PaDIS},
-  version = {1.0.0},
-  year = {2024}
-}
+If you are referencing the PaDIS GitHub repository directly, you can cite it as follows:
+
+Hu, J. (2024). *PaDIS: Patch-based Diffusion Models* [Source code]. GitHub. Retrieved from https://github.com/jasonhu4/PaDIS
