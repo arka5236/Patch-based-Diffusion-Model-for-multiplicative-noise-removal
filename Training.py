@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
     # Noise schedule for training will be on the *log* domain's added noise.
     NOISE_SCHEDULE_MIN = 0.01
-    NOISE_SCHEDULE_MAX = 0.5
+    NOISE_SCHEDULE_MAX = 5
 
     NUM_PATCHES_PER_IMAGE = 4
     BATCH_SIZE = 16
