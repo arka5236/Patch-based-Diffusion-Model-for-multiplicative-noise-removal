@@ -216,14 +216,14 @@ if __name__ == "__main__":
     IN_CHANNELS = 3
     OUT_CHANNELS = 3
     TIME_EMB_DIM = 256
-    NUM_EPOCHS = 1
+    NUM_EPOCHS = 10
     LEARNING_RATE = 1e-4
     SAVE_EVERY_EPOCHS = 1
     CHECKPOINT_DIR = "checkpoints"
     BEST_MODEL_PATH = os.path.join(CHECKPOINT_DIR, "best_score_network_model.pth")
 
     # Early Stopping Parameters
-    PATIENCE = 1
+    PATIENCE = 2
     best_val_psnr = -1.0
     epochs_no_improve = 0
 
@@ -343,20 +343,29 @@ if __name__ == "__main__":
         with torch.no_grad():
             for batch_idx, (clean_patch_log_val, clean_patch_original_val) in enumerate(val_loader):
                 clean_patch_log_val = clean_patch_log_val.to(device)
+                clean_patch_original_val = clean_patch_original_val.to(device)
 
                 sigma_t_val = (NOISE_SCHEDULE_MIN + (NOISE_SCHEDULE_MAX - NOISE_SCHEDULE_MIN) * torch.rand(clean_patch_log_val.shape[0], device=device)).unsqueeze(1).unsqueeze(2).unsqueeze(3)
                 noise_val = torch.randn_like(clean_patch_log_val)
                 noisy_patch_log_val = clean_patch_log_val + sigma_t_val * noise_val
                 predicted_noise_val = model(noisy_patch_log_val, sigma_t_val.squeeze())
 
-                # PSNR calculated on the denoising capability within the log-domain
-                denoised_log_patch = noisy_patch_log_val - predicted_noise_val * sigma_t_val # y_t - epsilon_theta * sigma_t
-                val_running_psnr += calculate_psnr(clean_patch_log_val, denoised_log_patch) * clean_patch_log_val.size(0)
-                val_samples += clean_patch_log_val.size(0)
+                # Denoise the patch in the log domain
+                denoised_log_patch = noisy_patch_log_val - predicted_noise_val * sigma_t_val
+
+                # Convert the denoised patch back to the original (linear) domain
+                denoised_original_patch = torch.exp(denoised_log_patch)
+
+                # Ensure the values are clamped to the valid range [0, 1]
+                denoised_original_patch = torch.clamp(denoised_original_patch, 0.0, 1.0)
+
+                # Calculate PSNR in the original domain
+                val_running_psnr += calculate_psnr(clean_patch_original_val, denoised_original_patch) * clean_patch_original_val.size(0)
+                val_samples += clean_patch_original_val.size(0)
 
         if val_samples > 0:
             avg_val_psnr = val_running_psnr / val_samples
-            print(f"Epoch {epoch+1} Validation PSNR (denoising only, in log domain): {avg_val_psnr:.2f} dB")
+            print(f"Epoch {epoch+1} Validation PSNR (denoising only, in ORIGINAL domain): {avg_val_psnr:.2f} dB")
         else:
             avg_val_psnr = -1.0 # No validation samples to calculate PSNR
             print("No validation samples processed.")
